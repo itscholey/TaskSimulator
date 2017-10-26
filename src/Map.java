@@ -17,9 +17,10 @@ public class Map extends JPanel {
 	private int cols;
 	private Random random;
 	private static final int seed = 150;
-	private boolean useSeed = true;
-	private final double riverBendProb = 0.05;
+	private boolean useSeed = false;
+	private final double riverBendProb = 0.0;
 	private final int maxRiverWidth = 1;
+	private final boolean generateRiver = false;
 			
 	
 	public Map() {
@@ -46,38 +47,33 @@ public class Map extends JPanel {
 		setUp();
 	}
 	
+	
+	public Tile getRandomPosition() {
+		return mapGrid[random.nextInt(rows)][random.nextInt(cols)];
+	}
+	
+	
+	
 	private void setUp() {
-		
-		int riverPosition = random.nextInt(cols);
-		
+
 		// set up map cell arrays
 		for (int i = 0; i < rows; i++) {
 			for (int j = 0; j < cols; j++) {				
-				if (j == riverPosition) {
-					mapGrid[i][j] = new Tile(Tile.RIVER);
-				}
-				else {
-					mapGrid[i][j] = new Tile(Tile.GRASS);
-				}
-				
-			}
-			if (random.nextDouble() <= riverBendProb) {
-				boolean isLeft = random.nextBoolean();
-				
-				if (isLeft && riverPosition > 0) {
-					riverPosition--;
-				}
-				else if (!isLeft && riverPosition < mapGrid.length-1){
-					riverPosition++;
-				}
-				
-				mapGrid[i][riverPosition] = new Tile(Tile.RIVER);
+				mapGrid[i][j] = new Tile(Tile.GRASS);
 			}
 		}
 		
-		mapGrid[rows-1][cols-1].setType(Tile.AGENT);
+		//mapGrid[rows-1][cols-1].setType(Tile.AGENT);
 		mapGrid[3][3].setType(Tile.FOOD);
 		
+	}
+	
+	public int getRows() {
+		return rows;
+	}
+	
+	public int getCols() {
+		return cols;
 	}
 	
 	public Tile[][] getMap() {

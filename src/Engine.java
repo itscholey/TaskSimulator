@@ -6,7 +6,6 @@ public class Engine {
 	
 	public Engine() {
 		gui = new Window();
-		agent = new Agent();
 	}
 	
 	public static void main(String[] args) {

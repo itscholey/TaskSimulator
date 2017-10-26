@@ -11,13 +11,15 @@ public class Window {
 	private Map map;
 	private int rows;
 	private int cols;
+	private Agent agent;
 
 	
 	public Window() {
-		rows = 40;
-		cols = 40;
+		rows = 10;
+		cols = 10;
 		
 		setUp();
+		agent = new Agent(map.getRandomPosition());
 	}
 	
 	public int getWidth() {
@@ -31,6 +33,7 @@ public class Window {
 	private void setUp() {
 		buildGUI();
 	}
+
 	/**
 	 * Constructs the elements of the GUI, and makes it visible once finished.
 	 */

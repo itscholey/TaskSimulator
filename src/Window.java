@@ -11,7 +11,6 @@ public class Window {
 	private Map map;
 	private int rows;
 	private int cols;
-	private Agent agent;
 
 	
 	public Window() {
@@ -19,7 +18,14 @@ public class Window {
 		cols = 10;
 		
 		setUp();
-		agent = new Agent(map.getRandomPosition());
+	}
+	
+	public JFrame getFrame() {
+		return mainFrame;
+	}
+	
+	public Map getMap() {
+		return map;
 	}
 	
 	public int getWidth() {
@@ -32,6 +38,10 @@ public class Window {
 	
 	private void setUp() {
 		buildGUI();
+	}
+	
+	public Tile getRandomPosition() {
+		return map.getRandomPosition();
 	}
 
 	/**

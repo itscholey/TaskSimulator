@@ -52,14 +52,16 @@ public class Map extends JPanel {
 		return mapGrid[random.nextInt(rows)][random.nextInt(cols)];
 	}
 	
-	
+	public Tile getTile(int x, int y) {
+		return mapGrid[x][y];
+	}
 	
 	private void setUp() {
 
 		// set up map cell arrays
 		for (int i = 0; i < rows; i++) {
 			for (int j = 0; j < cols; j++) {				
-				mapGrid[i][j] = new Tile(Tile.GRASS);
+				mapGrid[i][j] = new Tile(Tile.GRASS, i, j);
 			}
 		}
 		

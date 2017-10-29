@@ -42,7 +42,6 @@ public class Map extends JPanel {
 		prefWidth  = (cols * PREFERRED_TILE_SIZE) + cols + 1;
 		prefHeight = (rows * PREFERRED_TILE_SIZE) + rows + 1;
 		setPreferredSize(new Dimension(prefWidth, prefHeight));
-		System.out.println("Preferred: " + prefWidth + ", " + prefHeight);
 		
 		setUp();
 	}
@@ -65,7 +64,6 @@ public class Map extends JPanel {
 			}
 		}
 		
-		//mapGrid[rows-1][cols-1].setType(Tile.AGENT);
 		mapGrid[3][3].setType(Tile.FOOD);
 		
 	}
@@ -114,9 +112,6 @@ public class Map extends JPanel {
 		// last row
 		g.drawLine(0, ((height*cols)+cols), ((width*cols)+cols), ((height*cols)+cols));
 		// last column
-		g.drawLine(((width*rows)+rows), 0, ((width*rows)+rows), ((height*cols)+rows));
-		
-		System.out.println(getWidth() + " " + getHeight());
-		
+		g.drawLine(((width*rows)+rows), 0, ((width*rows)+rows), ((height*cols)+rows));		
 	}
 }

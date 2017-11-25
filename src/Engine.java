@@ -4,7 +4,7 @@ public class Engine {
 
 	private Window gui;
 	private Agent agent;
-	private static final int TIME_STEPS = 100;
+	private static final int TIME_STEPS = 100000;
 	
 	public Engine() {
 		gui = new Window();
@@ -23,12 +23,7 @@ public class Engine {
 	
 	private void run() {
 		for (int i = 0; i < TIME_STEPS; i++){
-			try {
-				Thread.sleep(100);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+
 			update();
 		}
 	}
